@@ -103,12 +103,9 @@ async def main():
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
        draw.rectangle([(85,100),(175,140)],fill = "blue")
        draw.text((85,100), str(await readWeight()), font=font40, fill = "white")
-       #draw.text((85,100), datetime.datetime.now().strftime('%S'), font=font40, fill = "white")
-#       draw.text((220, 35), str(temperature2), font = font40, fill = "white")
        draw.rectangle([(15,210),(150,226)],fill = "blue")
        draw.text((15,210), datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), font=font15, fill = "white")
        disp.ShowImage(image)
-#       time.sleep(0.2)
 
 #   Display Temperature Readings and the Image Frame
     imageFrame()
@@ -124,6 +121,5 @@ async def main():
     disp.module_exit()
     cleanAndExit()
     logging.info("quit:")
-    print("exiting...")
     exit()
 asyncio.run(main())
