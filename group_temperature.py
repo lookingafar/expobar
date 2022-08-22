@@ -82,7 +82,12 @@ async def main():
     # image=image.rotate(180)
      disp.ShowImage(image)
     
-    #Get Temperature Readings and display time
+    # Get temperature readings function
+    async def readTemperature ():
+        temperature1 = round(await sensor1.get_temperature(), 1)
+        return temperature1
+
+    #Main loop function
     async def getTemperatureReadings ():
      # Get the first temperature and weight readings
      temperature1 = round(await sensor1.get_temperature(), 1)
@@ -105,9 +110,6 @@ async def main():
         hx.tare()
   
 #       if b == True:
-        #await readTempeature()
-       temperature1 = round(await sensor1.get_temperature(), 1)
-       print (temperature1)
 #        b = False
 #       else:
 #        await asyncio.sleep(0.6)
@@ -122,7 +124,7 @@ async def main():
 #         draw.ellipse((250,85,270,105), fill = "blue")  
        draw.rectangle([(25,35),(115,75)],fill = "blue")
        draw.rectangle([(220,35),(300,75)],fill = "blue")
-       draw.text((25, 35), str(temperature1), font = font40, fill = "white")
+       draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
        draw.rectangle([(85,100),(175,140)],fill = "blue")
        draw.text((85,100), str(val), font=font40, fill = "white")
        #draw.text((85,100), datetime.datetime.now().strftime('%S'), font=font40, fill = "white")
