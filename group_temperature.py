@@ -93,18 +93,11 @@ async def main():
     
     #Main loop function
     async def getTemperatureReadings ():
-     # Get the first temperature and weight readings
-     #temperature1 = round(await sensor1.get_temperature(), 1)
-     #val = round(hx.get_weight(5),1)
-     # There is no async for HX711, so we create a swtich
-     # to read only one sensor at a time, either temperature or weight, to avoid delay
-     b = True
+
      # Create an array for weight readings
      weights = [0,0,0]
      #Main loop
      while True:
-    
-  
        draw.rectangle([(25,35),(115,75)],fill = "blue")
        draw.rectangle([(220,35),(300,75)],fill = "blue")
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
