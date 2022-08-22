@@ -26,12 +26,10 @@ else:
     from emulated_hx711 import HX711
 
 def cleanAndExit():
-    print("Cleaning...")
 
     if not EMULATE_HX711:
         GPIO.cleanup()
         
-    print("Bye!")
     sys.exit()
 
 hx = HX711(5, 6)
@@ -131,6 +129,7 @@ async def main():
 
  except KeyboardInterrupt:
     disp.module_exit()
+    cleanAndExit()
     logging.info("quit:")
     exit()
 asyncio.run(main())
