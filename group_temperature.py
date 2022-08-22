@@ -93,8 +93,8 @@ async def main():
     #Main loop function
     async def getTemperatureReadings ():
      # Get the first temperature and weight readings
-     temperature1 = round(await sensor1.get_temperature(), 1)
-     val = round(hx.get_weight(5),1)
+     #temperature1 = round(await sensor1.get_temperature(), 1)
+     #val = round(hx.get_weight(5),1)
      # There is no async for HX711, so we create a swtich
      # to read only one sensor at a time, either temperature or weight, to avoid delay
      b = True
@@ -102,13 +102,7 @@ async def main():
      weights = [0,0,0]
      #Main loop
      while True:
-       # add the last weight to the array and check if the last 3 values are more or less the same
-       #if so, tare the scales
-       weights.append(val)
-       if len(weights) > 3:
-        del weights[0]
-       if math.fabs(weights[2] - weights[1]) < 2 and math.fabs(weights[2] - weights[1]) < 2:
-        hx.tare()
+    
   
        draw.rectangle([(25,35),(115,75)],fill = "blue")
        draw.rectangle([(220,35),(300,75)],fill = "blue")
