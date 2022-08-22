@@ -86,7 +86,12 @@ async def main():
     async def readTemperature ():
         temperature1 = round(await sensor1.get_temperature(), 1)
         return temperature1
-
+    
+    # Get weight readings function
+    async def readWeight ():
+        weight1 = round(hx.get_weight(), 1)
+        return weight1
+    
     #Main loop function
     async def getTemperatureReadings ():
      # Get the first temperature and weight readings
@@ -99,8 +104,6 @@ async def main():
      weights = [0,0,0]
      #Main loop
      while True:
-       # Get the weight. 
-       val = round(hx.get_weight(5),1)
        # add the last weight to the array and check if the last 3 values are more or less the same
        #if so, tare the scales
        weights.append(val)
@@ -113,7 +116,7 @@ async def main():
        draw.rectangle([(220,35),(300,75)],fill = "blue")
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
        draw.rectangle([(85,100),(175,140)],fill = "blue")
-       draw.text((85,100), str(val), font=font40, fill = "white")
+       draw.text((85,100), str(await readWeight()), font=font40, fill = "white")
        #draw.text((85,100), datetime.datetime.now().strftime('%S'), font=font40, fill = "white")
 #       draw.text((220, 35), str(temperature2), font = font40, fill = "white")
        draw.rectangle([(15,210),(150,226)],fill = "blue")
