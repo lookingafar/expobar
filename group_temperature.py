@@ -63,6 +63,7 @@ async def main():
     # Create blank image for drawing.
     image = Image.new("RGB", (disp.height, disp.width ), "blue")
     draw = ImageDraw.Draw(image)
+    # Set font sizes
     font40 = ImageFont.truetype("../Font/Font02.ttf", 40)
     font30 = ImageFont.truetype("../Font/Font02.ttf", 30)
     font25 = ImageFont.truetype("../Font/Font02.ttf", 25)
