@@ -109,19 +109,6 @@ async def main():
        if math.fabs(weights[2] - weights[1]) < 2 and math.fabs(weights[2] - weights[1]) < 2:
         hx.tare()
   
-#       if b == True:
-#        b = False
-#       else:
-#        await asyncio.sleep(0.6)
-#        b = True
-       if temperature1 < 87:
-         draw.ellipse((50,85,70,105), fill = "red")
-       else:  
-         draw.ellipse((50,85,70,105), fill = "blue")  
-#       if temperature2 < 87:
-#         draw.ellipse((250,85,270,105), fill = "red")
-#       else:  
-#         draw.ellipse((250,85,270,105), fill = "blue")  
        draw.rectangle([(25,35),(115,75)],fill = "blue")
        draw.rectangle([(220,35),(300,75)],fill = "blue")
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
