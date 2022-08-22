@@ -84,8 +84,9 @@ async def main():
     
     #Get Temperature Readings and display time
     async def getTemperatureReadings ():
-     # Get the first temperature reading   
+     # Get the first temperature and weight readings
      temperature1 = round(await sensor1.get_temperature(), 1)
+     val = round(hx.get_weight(5),1)
      # There is no async for HX711, so we create a swtich
      # to read only one sensor at a time, either temperature or weight, to avoid delay
      b = True
