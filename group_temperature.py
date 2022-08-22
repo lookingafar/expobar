@@ -113,10 +113,7 @@ async def main():
 
 
  except KeyboardInterrupt:
-    disp.module_exit()
-    cleanAndExit()
     logging.info("Keyboard interrupt:")
-    exit()
  finally: 
     disp.module_exit()
     cleanAndExit()
