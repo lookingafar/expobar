@@ -98,10 +98,10 @@ async def main():
      weights = [0,0,0]
      #Main loop
      while True:
-       draw.rectangle([(25,35),(115,75)],fill = "blue")
-       draw.rectangle([(220,35),(300,75)],fill = "blue")
+       draw.rectangle([(25,35),(115,80)],fill = "blue")
+       #draw.rectangle([(220,35),(300,80)],fill = "green")
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
-       draw.rectangle([(85,100),(175,140)],fill = "blue")
+       draw.rectangle([(85,100),(205,145)],fill = "blue")
        draw.text((85,100), str(await readWeight()), font=font40, fill = "white")
        draw.rectangle([(15,210),(150,226)],fill = "blue")
        draw.text((15,210), datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), font=font15, fill = "white")
