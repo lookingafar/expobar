@@ -61,7 +61,7 @@ async def main():
     disp.clear()
 
     # Create blank image for drawing.
-    image = Image.new("RGB", (disp.height, disp.width ), "blue")
+    image = Image.new("RGB", (disp.height, disp.width ), "#00BFFF")
     draw = ImageDraw.Draw(image)
     # Set font sizes
     font40 = ImageFont.truetype("../Font/Font02.ttf", 40)
@@ -98,12 +98,12 @@ async def main():
      weights = [0,0,0]
      #Main loop
      while True:
-       draw.rectangle([(25,35),(115,80)],fill = "blue")
+       draw.rectangle([(25,35),(115,80)],fill = "#00BFFF")
        #draw.rectangle([(220,35),(300,80)],fill = "green")
        draw.text((25, 35), str(await readTemperature()), font = font40, fill = "white")
-       draw.rectangle([(85,100),(205,145)],fill = "blue")
+       draw.rectangle([(85,100),(205,145)],fill = "#00BFFF")
        draw.text((85,100), str(await readWeight()), font=font40, fill = "white")
-       draw.rectangle([(15,210),(150,226)],fill = "blue")
+       draw.rectangle([(15,210),(150,226)],fill = "#00BFFF")
        draw.text((15,210), datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'), font=font15, fill = "white")
        disp.ShowImage(image)
 
